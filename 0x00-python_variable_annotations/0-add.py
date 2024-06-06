@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Write a type-annotated function add
 takes a float a and a float b as argumentsreturns their sum as a float.

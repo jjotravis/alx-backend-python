@@ -52,3 +52,20 @@ class TestGithubOrgClient(unittest.TestCase):
         test_obj = GithubOrgClient('holberton')
         license_avail = test_obj.has_license(repo, licence_key)
         self.assertEqual(license_avail, expected)
+
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """
+    class used for intergration testing
+    """
+    @classmethod
+    def setUpClass(cls) -> None:
+        """
+        Set up function for class
+        """
+        cls.get_patch = patch('utils.requests.get', side_effect=requests_get)
+    @classmethod
+    def tearDownClass(cls) -> None:
+        """
+        Tear down class resources
+        """
+        cls.get_patch.stop()
